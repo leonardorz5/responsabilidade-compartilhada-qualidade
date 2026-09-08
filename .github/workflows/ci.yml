@@ -34,9 +34,10 @@ jobs:
           if [ -f metricas.json ]; then
             cat metricas.json
           fi
-            - name: Executar experimento de deteccao de defeitos
 
+      - name: Executar experimento de deteccao de defeitos
         run: python experimento_mutacoes.py
+
       - name: Exibir resultados do experimento
         if: always()
         run: |
