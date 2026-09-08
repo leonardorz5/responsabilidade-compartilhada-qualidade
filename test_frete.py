@@ -1,4 +1,12 @@
-from frete import calcular_frete
+import importlib
+import os
+
+
+MODULO_FRETE = os.getenv("FRETE_MODULE", "frete")
+
+calcular_frete = importlib.import_module(
+    MODULO_FRETE
+).calcular_frete
 
 
 def test_compra_acima_de_200_tem_frete_gratis():

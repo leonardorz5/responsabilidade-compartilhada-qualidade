@@ -4,3 +4,6 @@ __pycache__/
 *.pyc
 resultado-testes.xml
 metricas.json
+.experimento/
+resultados_experimento.csv
+resumo_experimento.json
