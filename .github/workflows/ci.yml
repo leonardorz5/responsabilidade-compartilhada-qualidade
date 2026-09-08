@@ -3,6 +3,7 @@ name: Testes de Qualidade
 on:
   push:
     branches: [main]
+
   pull_request:
     branches: [main]
 
@@ -24,5 +25,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Executar testes
-        run: pytest -v
+      - name: Executar testes e coletar metricas
+        run: python executar_qualidade.py
+
+      - name: Exibir metricas
+        if: always()
+        run: |
+          if [ -f metricas.json ]; then
+            cat metricas.json
+          fi
